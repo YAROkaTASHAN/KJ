@@ -13,7 +13,9 @@
 
                     include "config.php";
 
-                    $query = "SELECT * FROM `post` ";
+                    $query = "SELECT * FROM `post` ORDER BY `category` ASC
+                    LEFT JOIN
+                    ";
 
                     $result = mysqli_query($conn,$query);
 

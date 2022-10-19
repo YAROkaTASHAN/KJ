@@ -13,7 +13,7 @@
 
                 include "config.php";
 
-                $query = "SELECT * FROM `user`";
+                $query = "SELECT * FROM `user` ORDER BY `first_name` ASC";
 
                 $result = mysqli_query($conn, $query);
 

@@ -13,7 +13,7 @@
 
                 include "config.php";
 
-                $query = "SELECT * FROM `category` ";
+                $query = "SELECT * FROM `category` ORDER BY `category_name` ASC ";
 
                 $result = mysqli_query($conn, $query);
 
