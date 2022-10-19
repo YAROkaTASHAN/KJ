@@ -10,16 +10,14 @@
 
     <?php
         error_reporting(E_ALL ^ E_WARNING); 
-        $user_fname = $_POST["fname"];
-        $user_lname = $_POST["lname"];
-        $user_name = $_POST["user"];
-        $user_password = $_POST["password"];
-        $user_role = $_POST["role"];
-
-
         if(isset($_POST["save"]))
         {
             include "config.php";
+            $user_fname = $_POST["fname"];
+            $user_lname = $_POST["lname"];
+            $user_name = $_POST["user"];
+            $user_password = $_POST["password"];
+            $user_role = $_POST["role"];
             $query = "SELECT * FROM `user` WHERE username = '$user_name'";
             $result = mysqli_query($conn,$query);
 

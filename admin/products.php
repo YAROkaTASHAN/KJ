@@ -27,7 +27,6 @@
                           <th>Category</th>
                           <th>Date</th>
                           <th>Author</th>
-
                           <th>Edit</th>
                           <th>Delete</th>
                       </thead>
@@ -43,7 +42,7 @@
                               <td><?php echo $row["author"] ;?></td>
 
                               <td class='edit'><a href='update-products.php'><i class='fa fa-edit'></i></a></td>
-                              <td class='delete'><a href='delete-products.php'><i class='fa fa-trash-o'></i></a></td>
+                              <td class='delete'><a href='delete-products.php?post_id=<?php echo $row["post_id"]; ?>'><i class='fa fa-trash-o'></i></a></td>
 
                           </tr>
                           <?php }?>
