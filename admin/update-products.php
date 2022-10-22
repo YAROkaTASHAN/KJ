@@ -43,10 +43,17 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Product image</label>
-                                <input type="file" name="new-image">
+                                <label for="">UPLOADED-IMAGE</label>
                                 <img src="upload/<?php echo $row["post_img"] ?>" height="150px">
-                                <input type="hidden" name="old-image" value="">
+                                </div>
+                                <div class="form-group">
+                                <label for="">RECENTLY-Product-image</label>
+                                <input type="file" name="new-image" id="new-image">
+                                <script>
+                                var img = document.getElementById("new-image");
+                                </script>
+                                <img src="<script>upload/document.write(img)</script>" alt="">
+                                <img src="upload/<?php echo $file_name1 ;?>" alt="">
                             </div>
                         <?php } ?>
                         <input type="submit" name="submit" class="btn btn-primary" value="Update" />
@@ -54,9 +61,10 @@
                 <?php } ?>
                 <!-- Form End -->
                 <?php
+                $file_name1 = $_FILES["new-image"]["name"];
                 if (isset($_POST["submit"])) {
                     error_reporting(E_ALL ^ E_WARNING);
-                    include "config.php";
+                    include "config.php"; 
                     $title = $_POST["products_title"];
                     $discription = $_POST["productsdesc"];
                     $category = $_POST["category"];
@@ -83,11 +91,10 @@
                     }
                     $sql = "UPDATE `post` SET `title`='$title',`description`='$discription',`category`='$category',`post_date`='$date',`author`='$author',`post_img`='$file_name' WHERE `post_id`=$id";
 
-                    $resu =mysqli_query($conn, $sql);
+                    mysqli_query($conn, $sql);
                 };
-                if ($resu){
-                    header("location:localhost/KJ/admin/users.php");
-                };
+                 header("location:localhost/KJ/admin/users.php");
+
                 ?>
             </div>
         </div>

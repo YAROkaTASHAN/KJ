@@ -51,6 +51,9 @@
                     $category =$_POST["category"];  
                     $date =date("d - M - Y");  
                     $author =$_SESSION["username"];  
+                    if(isset($_FILES["fileToUpload"]))
+                    {
+
                     
                     $file_name =$_FILES["fileToUpload"]["name"];
                     $file_size=$_FILES["fileToUpload"]["size"];
@@ -80,6 +83,12 @@
                     $sql .="UPDATE `category` SET `post`=post + 1 WHERE `category_id` ='$category';";
                     mysqli_multi_query($conn,$sql);
                 }
+            }
+            else
+            {
+                echo "file is necessary";
+
+            }
                 ?>
               </div>
           </div>
