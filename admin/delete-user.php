@@ -7,7 +7,4 @@ include "config.php" ;
  if($result){
     header("location:http://localhost/KJ/admin/users.php");
  }
- 
-
-
 ?>

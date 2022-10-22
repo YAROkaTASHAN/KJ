@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_SESSION["username"]))
 {
-    header("location:http://localhost:82/KJ/admin/users.php");
+    header("location:http://localhost/KJ/admin/users.php");
 }
 ?>
 <?php

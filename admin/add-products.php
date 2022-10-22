@@ -51,15 +51,7 @@
                     $category =$_POST["category"];  
                     $date =date("d - M - Y");  
                     $author =$_SESSION["username"];  
-
-                    $sql ="INSERT INTO `post`(`title`, `description`, `category`, `post_date`, `author`, `post_img`) VALUES ('$title','$discription','$category','$date','$author','$file_name');";
-
-                    $sql .="UPDATE `category` SET `post`=post + 1 WHERE `category_id` ='$category';";
-                    mysqli_multi_query($conn,$sql);
                     
-                    if(isset($_FILES["fileToUpload"]))
-                    {
-                    $error =[];
                     $file_name =$_FILES["fileToUpload"]["name"];
                     $file_size=$_FILES["fileToUpload"]["size"];
                     $file_type =$_FILES["fileToUpload"]["type"];
@@ -81,8 +73,13 @@
                     {
                         move_uploaded_file($file_temp,"upload/".$file_name);
                     }
-                    }
-                };
+                    
+                    
+                    $sql ="INSERT INTO `post`(`title`, `description`, `category`, `post_date`, `author`, `post_img`) VALUES ('$title','$discription','$category','$date','$author','$file_name');";
+
+                    $sql .="UPDATE `category` SET `post`=post + 1 WHERE `category_id` ='$category';";
+                    mysqli_multi_query($conn,$sql);
+                }
                 ?>
               </div>
           </div>
